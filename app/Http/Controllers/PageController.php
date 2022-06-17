@@ -17,7 +17,18 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        try{
+            $pages= Auth()->user()->pages;
+                return response()->json([
+                    'success'=>true,
+                    'data'=>$pages,
+                ]);
+        }catch(Exception $e){
+            return response()->json([
+                'success'=>false,
+                'data'=>$e->getMessage(),
+            ]);
+        }
     }
 
 

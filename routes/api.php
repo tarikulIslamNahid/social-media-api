@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', 'UserController@logout');
     // Page Create Route
     Route::post('/page/create', 'PageController@store');
+    // Pages list Route
+    Route::get('/page', 'PageController@index');
 
 });
 Route::group([

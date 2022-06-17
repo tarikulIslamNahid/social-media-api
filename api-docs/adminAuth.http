@@ -1,0 +1,11 @@
+@API_URL=http://127.0.0.1:8000
+@TOKEN=Bearer 2|TNOaCtRHdTCBwPBqqKkx50IHbThpfVL4i4D2T37G
+### [ Login ]
+POST {{API_URL}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+accept: application/json
+
+    {
+    "email":" tarikul@gmail.com",
+    "password":"12121212"
+    }

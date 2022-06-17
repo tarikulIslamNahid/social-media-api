@@ -1,5 +1,5 @@
 @API_URL=http://127.0.0.1:8000
-@TOKEN=Bearer 6|h6Kivj9nwqZoJUnuYrAbz0bot9ww1M7RBCBTjmW6
+@TOKEN=Bearer 13|jICqpj8QZNS6ETCcSYBGikCvv9tV5y8DgUHCu1s1
 ### [ Register ]
 POST {{API_URL}}/api/auth/register HTTP/1.1
 Content-Type: application/json
@@ -18,7 +18,7 @@ Content-Type: application/json
 accept: application/json
 
     {
-    "email":"tarikul@gmail.com",
+    "email":"niloy@gmail.com",
     "password":"12121212"
     }
 ### [ Logout ]
@@ -30,6 +30,12 @@ Authorization: {{TOKEN}}
 
 ### [ Current User ]
 GET {{API_URL}}/api/user HTTP/1.1
+Content-Type: application/json
+accept: application/json
+Authorization: {{TOKEN}}
+
+### [ Feed ]
+POST {{API_URL}}/api/person/feed HTTP/1.1
 Content-Type: application/json
 accept: application/json
 Authorization: {{TOKEN}}

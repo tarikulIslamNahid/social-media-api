@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Follow;
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -97,6 +99,53 @@ class UserController extends Controller
             'data'=>'logout successfully !',
         ]);
        }
+    }
+
+    public function feed(){
+        try {
+          $following=Follow::where('follower',Auth()->user()->id)->get();
+          $posts=[];
+          foreach ($following as $follow) {
+           if($follow->type=='person'){
+            $post=Post::where([
+                'type'=>'person',
+                'author_id'=>$follow->following
+            ])->get();
+            if(Count($post)>0){
+                array_push($posts,$post);
+            }
+           }else if($follow->type=='page'){
+            $post=Post::where([
+                'type'=>'page',
+                'author_id'=>$follow->following
+            ])->get();
+            if(Count($post)>0){
+                array_push($posts,$post);
+            }
+           }
+          }
+        //   $pagePosts
+          return response()->json([
+            'success'=>true,
+            'data'=>$posts,
+        ]);
+        //   if(Count($following)>0){
+        //     return response()->json([
+        //         'success'=>true,
+        //         'data'=>$following,
+        //     ]);
+        // }else{
+        //     return response()->json([
+        //         'success'=>true,
+        //         'data'=>'You catch all post\'s ',
+        //     ]);
+        // }
+        } catch (Exception $e) {
+            return response()->json([
+                'success'=>false,
+                'data'=>$e->getMessage(),
+            ]);
+        }
     }
 
 }

@@ -9,7 +9,7 @@ accept: application/json
 Authorization: {{TOKEN}}
 
 ### [ person to page follow ]
-@page_id=1
+@page_id=3
 POST {{API_URL}}/api/follow/page/{{page_id}} HTTP/1.1
 Content-Type: application/json
 accept: application/json

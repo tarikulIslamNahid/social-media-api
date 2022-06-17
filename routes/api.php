@@ -31,6 +31,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/person/attach-post', 'PostController@personPostStore');
     // page create post Route
     Route::post('/page/{page_id}/attach-post', 'PostController@pagePostStore');
+    // Person Feed Route
+    Route::post('/person/feed', 'UserController@feed');
 
 });
 Route::group([

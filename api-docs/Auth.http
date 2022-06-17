@@ -18,7 +18,7 @@ Content-Type: application/json
 accept: application/json
 
     {
-    "email":"nilsoys@gmail.com",
+    "email":"tarikul@gmail.com",
     "password":"12121212"
     }
 ### [ Logout ]

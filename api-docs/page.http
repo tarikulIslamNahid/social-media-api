@@ -1,0 +1,13 @@
+@API_URL=http://127.0.0.1:8000
+@TOKEN=Bearer 11|MXewSV1SUkO27CgLIJvdFNoCwhJkeXNAvGNHzexV
+
+### [ Page Create ]
+POST {{API_URL}}/api/page/create HTTP/1.1
+Content-Type: application/json
+accept: application/json
+Authorization: {{TOKEN}}
+
+    {
+    "name":"Niloy",
+    "user_id":1
+    }

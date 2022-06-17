@@ -15,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->group(function () {
+    // Current User Route
     Route::get('/user', 'UserController@user');
+    // Logout Route
     Route::post('/logout', 'UserController@logout');
+    // Page Create Route
+    Route::post('/page/create', 'PageController@store');
 
 });
 Route::group([
     'prefix' => 'auth'
 ], function ($route) {
+    // Login Route
     Route::post('/login', 'UserController@login');
+    // Register Route
     Route::post('/register', 'UserController@register');
 });

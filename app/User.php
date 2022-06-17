@@ -43,4 +43,9 @@ class User extends Authenticatable
         $newCount = $count > 0 ? ++$count : '';
         return $newCount > 0 ? "$slug-$newCount" : $slug;
     }
+
+    public function pages()
+    {
+        return $this->hasMany('App\Page');
+    }
 }

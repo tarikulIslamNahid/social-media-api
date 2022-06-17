@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/page/create', 'PageController@store');
     // Pages list Route
     Route::get('/pages', 'PageController@index');
+    // person to person follow Route
     Route::post('/follow/person/{person_id}', 'FollowController@PersonFollow');
 
 });

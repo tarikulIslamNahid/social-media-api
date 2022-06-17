@@ -14,38 +14,30 @@ class FollowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function PersonFollow(Request $request,$person_id)
+    public function PersonFollow($person_id)
     {
         try {
-            $validator = Validator::make($request->all(), [
-                'following' => 'required',
-            ]);
-            if ($validator->fails()) {
-                return response()->json(['success' => false,'data'=>$validator->errors(), 422]);
-            } else {
+
                 $following=Follow::where([
-                    'follower'=>$person_id,
-                    'following'=>$request->following
+                    'follower'=>Auth()->user()->id,
+                    'following'=>$person_id
                 ])->first();
                 if(!$following){
                     $Follow= new Follow;
-                    $Follow->follower=$person_id;
-                    $Follow->following=$request->following;
+                    $Follow->follower=Auth()->user()->id;
+                    $Follow->following=$person_id;
                     $Follow->type='person';
                     $Follow->save();
                     return response()->json([
                         'success'=>true,
-                        'data'=>'Your are now following this page !',
+                        'data'=>'Your are now following this person !',
                     ]);
                 }else{
                     return response()->json([
                         'success'=>false,
-                        'data'=>'Your are already following this page !',
+                        'data'=>'Your are already following this person !',
                     ]);
                 }
-
-            }
-
         } catch (Exception $e) {
             return response()->json([
                 'success'=>false,

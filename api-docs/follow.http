@@ -8,6 +8,3 @@ Content-Type: application/json
 accept: application/json
 Authorization: {{TOKEN}}
 
-    {
-    "following":2
-    }

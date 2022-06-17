@@ -2,7 +2,7 @@
 @TOKEN=Bearer 11|MXewSV1SUkO27CgLIJvdFNoCwhJkeXNAvGNHzexV
 
 ### [ Pages List ]
-GET {{API_URL}}/api/page HTTP/1.1
+GET {{API_URL}}/api/pages HTTP/1.1
 Content-Type: application/json
 accept: application/json
 Authorization: {{TOKEN}}

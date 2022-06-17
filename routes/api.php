@@ -22,7 +22,8 @@ Route::middleware('auth:sanctum')->group(function () {
     // Page Create Route
     Route::post('/page/create', 'PageController@store');
     // Pages list Route
-    Route::get('/page', 'PageController@index');
+    Route::get('/pages', 'PageController@index');
+    Route::post('/follow/person/{person_id}', 'FollowController@PersonFollow');
 
 });
 Route::group([

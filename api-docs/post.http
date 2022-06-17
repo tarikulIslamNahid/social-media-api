@@ -8,6 +8,16 @@ accept: application/json
 Authorization: {{TOKEN}}
 
     {
-    "content":"this is test post !!",
-    "type":"person"
+    "content":"this is test post for person !!"
+    }
+
+### [ page Post Store ]
+@page_id=3
+POST {{API_URL}}/api/page/{{page_id}}/attach-post HTTP/1.1
+Content-Type: application/json
+accept: application/json
+Authorization: {{TOKEN}}
+
+    {
+    "content":"this is test post for page !!"
     }

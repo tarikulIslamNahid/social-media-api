@@ -20,7 +20,8 @@ class FollowController extends Controller
 
                 $following=Follow::where([
                     'follower'=>Auth()->user()->id,
-                    'following'=>$person_id
+                    'following'=>$person_id,
+                    'type'=>'person'
                 ])->first();
                 if(!$following){
                     $Follow= new Follow;
@@ -36,6 +37,38 @@ class FollowController extends Controller
                     return response()->json([
                         'success'=>false,
                         'data'=>'Your are already following this person !',
+                    ]);
+                }
+        } catch (Exception $e) {
+            return response()->json([
+                'success'=>false,
+                'data'=>$e->getMessage(),
+            ]);
+        }
+    }
+    public function PageFollow($page_id)
+    {
+        try {
+
+                $following=Follow::where([
+                    'follower'=>Auth()->user()->id,
+                    'following'=>$page_id,
+                    'type'=>'page'
+                ])->first();
+                if(!$following){
+                    $Follow= new Follow;
+                    $Follow->follower=Auth()->user()->id;
+                    $Follow->following=$page_id;
+                    $Follow->type='page';
+                    $Follow->save();
+                    return response()->json([
+                        'success'=>true,
+                        'data'=>'Your are now following this page !',
+                    ]);
+                }else{
+                    return response()->json([
+                        'success'=>false,
+                        'data'=>'Your are already following this page !',
                     ]);
                 }
         } catch (Exception $e) {

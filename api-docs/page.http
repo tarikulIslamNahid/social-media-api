@@ -1,5 +1,5 @@
 @API_URL=http://127.0.0.1:8000
-@TOKEN=Bearer 11|MXewSV1SUkO27CgLIJvdFNoCwhJkeXNAvGNHzexV
+@TOKEN=Bearer 12|epodAOvZX8BCa1yBYymsdqoMNtvZz6BeU1gH39p2
 
 ### [ Pages List ]
 GET {{API_URL}}/api/pages HTTP/1.1

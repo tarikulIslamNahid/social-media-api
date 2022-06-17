@@ -34,7 +34,7 @@ Content-Type: application/json
 accept: application/json
 Authorization: {{TOKEN}}
 
-### [ Feed ]
+### [ Person Feed ]
 POST {{API_URL}}/api/person/feed HTTP/1.1
 Content-Type: application/json
 accept: application/json

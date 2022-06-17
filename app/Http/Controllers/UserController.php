@@ -103,14 +103,14 @@ class UserController extends Controller
 
     public function feed(){
         try {
-          $following=Follow::where('follower',Auth()->user()->id)->get();
+          $following=Follow::where('follower',Auth()->user()->id)->orderBy('created_at', 'desc')->get();
           $posts=[];
           foreach ($following as $follow) {
            if($follow->type=='person'){
             $post=Post::where([
                 'type'=>'person',
                 'author_id'=>$follow->following
-            ])->get();
+            ])->orderBy('created_at', 'desc')->get();
             if(Count($post)>0){
                 array_push($posts,$post);
             }
@@ -118,7 +118,7 @@ class UserController extends Controller
             $post=Post::where([
                 'type'=>'page',
                 'author_id'=>$follow->following
-            ])->get();
+            ])->orderBy('created_at', 'desc')->get();
             if(Count($post)>0){
                 array_push($posts,$post);
             }

@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', 'UserController@user');
     Route::post('/logout', 'UserController@logout');
- 
+
 });
 Route::group([
     'prefix' => 'auth'
 ], function ($route) {
     Route::post('/login', 'UserController@login');
+    Route::post('/register', 'UserController@register');
 });

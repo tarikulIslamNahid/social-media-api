@@ -1,12 +1,24 @@
 @API_URL=http://127.0.0.1:8000
 @TOKEN=Bearer 6|h6Kivj9nwqZoJUnuYrAbz0bot9ww1M7RBCBTjmW6
+### [ Register ]
+POST {{API_URL}}/api/auth/register HTTP/1.1
+Content-Type: application/json
+accept: application/json
+
+    {
+    "first_name":"Niloy",
+    "last_name":"Ahmed",
+    "email":"nilsoys@gmail.com",
+    "password":"12121212",
+    "password_confirmation":"12121212"
+    }
 ### [ Login ]
 POST {{API_URL}}/api/auth/login HTTP/1.1
 Content-Type: application/json
 accept: application/json
 
     {
-    "email":" tarikul@gmail.com",
+    "email":"nilsoys@gmail.com",
     "password":"12121212"
     }
 ### [ Logout ]

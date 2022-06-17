@@ -1,0 +1,13 @@
+@API_URL=http://127.0.0.1:8000
+@TOKEN=Bearer 12|epodAOvZX8BCa1yBYymsdqoMNtvZz6BeU1gH39p2
+
+### [ Person Post Store ]
+POST {{API_URL}}/api/person/attach-post HTTP/1.1
+Content-Type: application/json
+accept: application/json
+Authorization: {{TOKEN}}
+
+    {
+    "content":"this is test post !!",
+    "type":"person"
+    }

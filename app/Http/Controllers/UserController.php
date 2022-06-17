@@ -46,4 +46,20 @@ class UserController extends Controller
             'user' => Auth()->user(),
         ]);
     }
+
+    public function user(Request $request){
+        $user = $request->user();
+        return response()->json([$user]);
+    }
+    public function logout(Request $request){
+        $id=$request->user()->id;
+       $logout = auth()->user()->tokens()->where('tokenable_id',$id)->delete();
+       if($logout){
+        return response()->json([
+            'success'=>true,
+            'data'=>'logout successfully !',
+        ]);
+       }
+    }
+
 }
